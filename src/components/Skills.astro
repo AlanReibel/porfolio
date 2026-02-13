@@ -15,8 +15,10 @@ const skills = {
 <section id="skills" class="skills">
 	<div class="container">
 		<h2>Habilidades</h2>
+		<p class="section-subtitle">Tecnologías y herramientas que domino</p>
 		<div class="skills-grid">
 			<div class="skill-category">
+				<div class="category-icon">🤖</div>
 				<h3>AI & Development</h3>
 				<div class="skill-tags">
 					{skills.aiDevelopment.map(skill => (
@@ -25,6 +27,7 @@ const skills = {
 				</div>
 			</div>
 			<div class="skill-category">
+				<div class="category-icon">🎨</div>
 				<h3>Frontend</h3>
 				<div class="skill-tags">
 					{skills.frontend.map(skill => (
@@ -33,6 +36,7 @@ const skills = {
 				</div>
 			</div>
 			<div class="skill-category">
+				<div class="category-icon">⚙️</div>
 				<h3>Backend</h3>
 				<div class="skill-tags">
 					{skills.backend.map(skill => (
@@ -41,6 +45,7 @@ const skills = {
 				</div>
 			</div>
 			<div class="skill-category">
+				<div class="category-icon">🧪</div>
 				<h3>Testing & Quality</h3>
 				<div class="skill-tags">
 					{skills.testingQuality.map(skill => (
@@ -49,6 +54,7 @@ const skills = {
 				</div>
 			</div>
 			<div class="skill-category">
+				<div class="category-icon">🚀</div>
 				<h3>DevOps & Tools</h3>
 				<div class="skill-tags">
 					{skills.devopsTools.map(skill => (
@@ -57,6 +63,7 @@ const skills = {
 				</div>
 			</div>
 			<div class="skill-category">
+				<div class="category-icon">⚡</div>
 				<h3>Performance & SEO</h3>
 				<div class="skill-tags">
 					{skills.performance.map(skill => (
@@ -65,6 +72,7 @@ const skills = {
 				</div>
 			</div>
 			<div class="skill-category">
+				<div class="category-icon">🎭</div>
 				<h3>Design Tools</h3>
 				<div class="skill-tags">
 					{skills.designTools.map(skill => (
@@ -73,6 +81,7 @@ const skills = {
 				</div>
 			</div>
 			<div class="skill-category">
+				<div class="category-icon">🛒</div>
 				<h3>CMS & eCommerce</h3>
 				<div class="skill-tags">
 					{skills.cmsEcommerce.map(skill => (
@@ -81,6 +90,7 @@ const skills = {
 				</div>
 			</div>
 			<div class="skill-category learning-category">
+				<div class="category-icon">📚</div>
 				<h3>Actualmente Aprendiendo</h3>
 				<div class="skill-tags">
 					{skills.learning.map(skill => (
@@ -95,7 +105,18 @@ const skills = {
 <style>
 	.skills {
 		padding: 5rem 2rem;
-		background-color: var(--color-secondary);
+		background: linear-gradient(135deg, var(--color-secondary) 0%, #1a202c 100%);
+		position: relative;
+	}
+
+	.skills::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 1px;
+		background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
 	}
 
 	.container {
@@ -106,7 +127,31 @@ const skills = {
 	.skills h2 {
 		text-align: center;
 		margin-bottom: 3rem;
-		color: var(--color-accent);
+		background: linear-gradient(135deg, var(--color-gradient-3), var(--color-gradient-4));
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+		position: relative;
+	}
+
+	.skills h2::after {
+		content: '';
+		position: absolute;
+		bottom: -10px;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 60px;
+		height: 3px;
+		background: linear-gradient(90deg, var(--color-gradient-3), var(--color-gradient-4));
+		border-radius: 2px;
+	}
+
+	.section-subtitle {
+		text-align: center;
+		color: var(--color-text-muted);
+		font-size: 1.1rem;
+		margin-bottom: 3rem;
+		font-weight: 300;
 	}
 
 	.skills-grid {
@@ -115,13 +160,58 @@ const skills = {
 		gap: 2rem;
 	}
 
+	.skill-category {
+		background: rgba(255, 255, 255, 0.02);
+		backdrop-filter: blur(10px);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		border-radius: 1rem;
+		padding: 2rem;
+		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.skill-category::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 3px;
+		background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
+		transform: scaleX(0);
+		transition: transform 0.3s ease;
+	}
+
+	.skill-category:hover::before {
+		transform: scaleX(1);
+	}
+
+	.skill-category:hover {
+		transform: translateY(-10px);
+		box-shadow: var(--shadow-medium);
+		border-color: rgba(59, 130, 246, 0.3);
+	}
+
+	.category-icon {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+		display: block;
+		animation: float 3s ease-in-out infinite;
+	}
+
 	.skill-category h3 {
 		color: var(--color-accent-light);
 		margin-bottom: 1.5rem;
+		font-size: 1.3rem;
 	}
 
 	.skill-category.learning-category h3 {
 		color: #fbbf24;
+	}
+
+	.learning-category .category-icon {
+		filter: sepia(1) hue-rotate(30deg) saturate(2);
 	}
 
 	.skill-tags {
@@ -131,24 +221,43 @@ const skills = {
 	}
 
 	.skill-tag {
-		background-color: var(--color-primary);
+		background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.05));
 		color: var(--color-accent);
 		padding: 0.75rem 1.25rem;
 		border-radius: 2rem;
 		border: 1px solid var(--color-accent);
 		font-size: 0.9rem;
-		transition: all 0.3s ease;
+		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.skill-tag::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: -100%;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+		transition: left 0.5s;
+	}
+
+	.skill-tag:hover::before {
+		left: 100%;
 	}
 
 	.skill-tag:hover {
-		background-color: var(--color-accent);
+		background: var(--color-accent);
 		color: white;
 		transform: translateY(-4px);
+		box-shadow: var(--shadow-soft);
 	}
 
 	.learning-tag {
 		border-color: #fbbf24;
 		color: #fbbf24;
+		background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(251, 191, 36, 0.05));
 	}
 
 	.learning-tag:hover {
@@ -163,6 +272,10 @@ const skills = {
 
 		.skills-grid {
 			grid-template-columns: 1fr;
+		}
+
+		.category-icon {
+			font-size: 2rem;
 		}
 	}
 </style>

@@ -5,8 +5,16 @@
 	<nav class="navbar">
 		<div class="nav-container">
 			<div class="nav-logo">
-				<a href="/">Alan Reibel</a>
+				<a href="/" class="logo-link">
+					<span class="logo-text gradient-text">Alan Reibel</span>
+					<span class="logo-subtitle">Full Stack Developer</span>
+				</a>
 			</div>
+			<button class="mobile-menu-toggle" aria-label="Toggle menu">
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
 			<ul class="nav-menu">
 				<li><a href="#about">Sobre mí</a></li>
 				<li><a href="#skills">Habilidades</a></li>
@@ -21,11 +29,13 @@
 
 <style>
 	.header {
-		background-color: var(--color-secondary);
+		background: rgba(30, 41, 59, 0.8);
+		backdrop-filter: blur(10px);
 		border-bottom: 1px solid var(--color-border);
 		position: sticky;
 		top: 0;
 		z-index: 100;
+		transition: all 0.3s ease;
 	}
 
 	.navbar {
@@ -40,31 +50,161 @@
 		align-items: center;
 	}
 
-	.nav-logo a {
+	.logo-link {
+		display: flex;
+		flex-direction: column;
+		text-decoration: none;
+		transition: transform 0.3s ease;
+	}
+
+	.logo-link:hover {
+		transform: translateY(-2px);
+	}
+
+	.logo-text {
 		font-size: 1.5rem;
 		font-weight: bold;
-		color: var(--color-accent);
+		line-height: 1;
+	}
+
+	.logo-subtitle {
+		font-size: 0.7rem;
+		color: var(--color-text-muted);
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		margin-top: 2px;
+	}
+
+	.mobile-menu-toggle {
+		display: none;
+		flex-direction: column;
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: 0.5rem;
+		gap: 4px;
+	}
+
+	.mobile-menu-toggle span {
+		width: 25px;
+		height: 2px;
+		background: var(--color-accent);
+		transition: all 0.3s ease;
+		border-radius: 2px;
 	}
 
 	.nav-menu {
 		display: flex;
 		list-style: none;
 		gap: 2rem;
+		margin: 0;
+		padding: 0;
 	}
 
 	.nav-menu a {
 		color: var(--color-text-muted);
-		transition: color 0.3s ease;
+		transition: all 0.3s ease;
+		padding: 0.5rem 1rem;
+		border-radius: 0.5rem;
+		position: relative;
+		text-decoration: none;
+	}
+
+	.nav-menu a::before {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		width: 0;
+		height: 2px;
+		background: var(--color-accent);
+		transition: all 0.3s ease;
+		transform: translateX(-50%);
+	}
+
+	.nav-menu a:hover::before {
+		width: 80%;
 	}
 
 	.nav-menu a:hover {
 		color: var(--color-accent);
+		background: rgba(59, 130, 246, 0.1);
 	}
 
 	@media (max-width: 768px) {
+		.mobile-menu-toggle {
+			display: flex;
+		}
+
 		.nav-menu {
-			gap: 1rem;
+			position: absolute;
+			top: 100%;
+			left: 0;
+			right: 0;
+			background: rgba(30, 41, 59, 0.95);
+			backdrop-filter: blur(10px);
+			flex-direction: column;
+			padding: 1rem;
+			gap: 0;
+			transform: translateY(-100%);
+			opacity: 0;
+			visibility: hidden;
+			transition: all 0.3s ease;
+		}
+
+		.nav-menu.active {
+			transform: translateY(0);
+			opacity: 1;
+			visibility: visible;
+		}
+
+		.nav-menu li {
+			width: 100%;
+		}
+
+		.nav-menu a {
+			display: block;
+			padding: 1rem;
+			border-bottom: 1px solid var(--color-border);
 			font-size: 0.9rem;
+		}
+
+		.logo-subtitle {
+			display: none;
 		}
 	}
 </style>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const toggle = document.querySelector('.mobile-menu-toggle');
+		const menu = document.querySelector('.nav-menu');
+		
+		toggle?.addEventListener('click', () => {
+			menu?.classList.toggle('active');
+		});
+
+		// Close menu when clicking on a link
+		document.querySelectorAll('.nav-menu a').forEach(link => {
+			link.addEventListener('click', () => {
+				menu?.classList.remove('active');
+			});
+		});
+
+		// Header scroll effect
+		let lastScroll = 0;
+		const header = document.querySelector('.header');
+		
+		window.addEventListener('scroll', () => {
+			const currentScroll = window.pageYOffset;
+			
+			if (currentScroll > 100) {
+				header?.classList.add('scrolled');
+			} else {
+				header?.classList.remove('scrolled');
+			}
+			
+			lastScroll = currentScroll;
+		});
+	});
+</script>

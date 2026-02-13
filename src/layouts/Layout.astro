@@ -31,17 +31,105 @@ const { title, description = "Portafolio de Alan Reibel - Desarrollador Full Sta
 				--color-text: #f1f5f9;
 				--color-text-muted: #cbd5e1;
 				--color-border: #334155;
+				--color-gradient-1: #667eea;
+				--color-gradient-2: #764ba2;
+				--color-gradient-3: #f093fb;
+				--color-gradient-4: #f5576c;
+				--shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.1);
+				--shadow-medium: 0 20px 60px rgba(0, 0, 0, 0.15);
+				--shadow-strong: 0 30px 80px rgba(0, 0, 0, 0.2);
 			}
 
 			html {
 				font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 				background-color: var(--color-primary);
 				color: var(--color-text);
+				scroll-behavior: smooth;
 			}
 
 			body {
 				line-height: 1.6;
 				overflow-x: hidden;
+			}
+
+			/* Smooth animations */
+			* {
+				transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+			}
+
+			/* Custom scrollbar */
+			::-webkit-scrollbar {
+				width: 8px;
+			}
+
+			::-webkit-scrollbar-track {
+				background: var(--color-secondary);
+			}
+
+			::-webkit-scrollbar-thumb {
+				background: var(--color-accent);
+				border-radius: 4px;
+			}
+
+			::-webkit-scrollbar-thumb:hover {
+				background: var(--color-accent-light);
+			}
+
+			/* Floating animation */
+			@keyframes float {
+				0%, 100% { transform: translateY(0px); }
+				50% { transform: translateY(-10px); }
+			}
+
+			/* Fade in animation */
+			@keyframes fadeInUp {
+				from {
+					opacity: 0;
+					transform: translateY(30px);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			/* Slide in animation */
+			@keyframes slideInLeft {
+				from {
+					opacity: 0;
+					transform: translateX(-50px);
+				}
+				to {
+					opacity: 1;
+					transform: translateX(0);
+				}
+			}
+
+			/* Scale animation */
+			@keyframes scaleIn {
+				from {
+					opacity: 0;
+					transform: scale(0.8);
+				}
+				to {
+					opacity: 1;
+					transform: scale(1);
+				}
+			}
+
+			/* Gradient text */
+			.gradient-text {
+				background: linear-gradient(135deg, var(--color-gradient-1), var(--color-gradient-2));
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
+			}
+
+			/* Glass effect */
+			.glass {
+				background: rgba(255, 255, 255, 0.05);
+				backdrop-filter: blur(10px);
+				border: 1px solid rgba(255, 255, 255, 0.1);
 			}
 
 			a {

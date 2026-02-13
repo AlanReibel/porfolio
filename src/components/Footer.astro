@@ -4,18 +4,74 @@
 <footer class="footer">
 	<div class="container">
 		<div class="footer-content">
-			<p>&copy; 2025 Alan Reibel. Todos los derechos reservados.</p>
-			<p>Desarrollado con <span class="heart">❤️</span> y Astro</p>
+			<div class="footer-main">
+				<div class="footer-brand">
+					<h3 class="gradient-text">Alan Reibel</h3>
+					<p>Desarrollador Full Stack especializado en crear soluciones web innovadoras</p>
+				</div>
+				<div class="footer-links">
+					<div class="link-group">
+						<h4>Navegación</h4>
+						<ul>
+							<li><a href="#about">Sobre mí</a></li>
+							<li><a href="#skills">Habilidades</a></li>
+							<li><a href="#projects">Proyectos</a></li>
+							<li><a href="#contact">Contacto</a></li>
+						</ul>
+					</div>
+					<div class="link-group">
+						<h4>Tecnologías</h4>
+						<ul>
+							<li>React & Vue.js</li>
+							<li>Node.js & PHP</li>
+							<li>Docker & CI/CD</li>
+							<li>AI Development</li>
+						</ul>
+					</div>
+					<div class="link-group">
+						<h4>Conecta</h4>
+						<div class="social-links">
+							<a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-link">
+								<span class="social-icon">📧</span>
+								Email
+							</a>
+							<a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-link">
+								<span class="social-icon">💼</span>
+								LinkedIn
+							</a>
+							<a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-link">
+								<span class="social-icon">🐙</span>
+								GitHub
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<p>&copy; 2025 Alan Reibel. Todos los derechos reservados.</p>
+				<p>Desarrollado con <span class="heart">❤️</span> y Astro</p>
+			</div>
 		</div>
 	</div>
 </footer>
 
 <style>
 	.footer {
-		background-color: var(--color-secondary);
+		background: linear-gradient(135deg, var(--color-secondary) 0%, #0f172a 100%);
 		border-top: 1px solid var(--color-border);
-		padding: 2rem;
+		padding: 3rem 2rem 1rem;
 		margin-top: auto;
+		position: relative;
+	}
+
+	.footer::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 1px;
+		background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
 	}
 
 	.container {
@@ -24,17 +80,108 @@
 	}
 
 	.footer-content {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	.footer-main {
+		display: grid;
+		grid-template-columns: 1fr 2fr;
+		gap: 3rem;
+		align-items: start;
+	}
+
+	.footer-brand h3 {
+		font-size: 1.5rem;
+		margin-bottom: 1rem;
+	}
+
+	.footer-brand p {
+		color: var(--color-text-muted);
+		line-height: 1.6;
+	}
+
+	.footer-links {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 2rem;
+	}
+
+	.link-group h4 {
+		color: var(--color-accent);
+		margin-bottom: 1rem;
+		font-size: 1.1rem;
+	}
+
+	.link-group ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.link-group ul li {
+		margin-bottom: 0.5rem;
+	}
+
+	.link-group ul li a {
+		color: var(--color-text-muted);
+		text-decoration: none;
+		transition: color 0.3s ease;
+	}
+
+	.link-group ul li a:hover {
+		color: var(--color-accent);
+	}
+
+	.link-group ul li:not(:has(a)) {
+		color: var(--color-text-muted);
+		font-size: 0.9rem;
+	}
+
+	.social-links {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.social-link {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		color: var(--color-text-muted);
+		text-decoration: none;
+		padding: 0.5rem;
+		border-radius: 0.5rem;
+		transition: all 0.3s ease;
+	}
+
+	.social-link:hover {
+		color: var(--color-accent);
+		background: rgba(59, 130, 246, 0.1);
+		transform: translateX(5px);
+	}
+
+	.social-icon {
+		font-size: 1.2rem;
+	}
+
+	.footer-bottom {
 		text-align: center;
+		padding-top: 2rem;
+		border-top: 1px solid var(--color-border);
 		color: var(--color-text-muted);
 	}
 
-	.footer-content p {
+	.footer-bottom p {
 		margin: 0.5rem 0;
+		font-size: 0.9rem;
 	}
 
 	.heart {
 		display: inline-block;
 		animation: heartbeat 1.5s ease-in-out infinite;
+		color: #ef4444;
 	}
 
 	@keyframes heartbeat {
@@ -43,6 +190,27 @@
 		}
 		50% {
 			transform: scale(1.2);
+		}
+	}
+
+	@media (max-width: 768px) {
+		.footer {
+			padding: 2rem 1rem 1rem;
+		}
+
+		.footer-main {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+
+		.footer-links {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+
+		.social-links {
+			flex-direction: row;
+			flex-wrap: wrap;
 		}
 	}
 </style>
