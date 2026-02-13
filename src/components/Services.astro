@@ -1,0 +1,184 @@
+---
+const services = [
+	{
+		title: "Desarrollo Web",
+		description: "Sitios web modernos, responsivos y optimizados. Desde landing pages hasta plataformas complejas con tecnologías actuales.",
+		icon: "🌐"
+	},
+	{
+		title: "Desarrollo de Aplicaciones",
+		description: "Aplicaciones web y móviles escalables. Full Stack con arquitecturas limpias y código mantenible.",
+		icon: "📱"
+	},
+	{
+		title: "Integraciones CRM/ERP",
+		description: "Conecta tus sistemas: Salesforce, HubSpot, SAP, NetSuite. Automatiza flujos de datos entre plataformas.",
+		icon: "🔗"
+	},
+	{
+		title: "Automatización con IA",
+		description: "Implementa agentes IA, workflows inteligentes y herramientas que automatizan procesos complejos.",
+		icon: "🤖"
+	},
+	{
+		title: "Mantenimiento y Soporte",
+		description: "Soporte técnico continuo, actualizaciones, parches de seguridad y monitoreo proactivo de sistemas.",
+		icon: "🔧"
+	},
+	{
+		title: "Asesoramiento Técnico",
+		description: "Consultoría en arquitectura de software, mejora de procesos y selección de tecnologías.",
+		icon: "💡"
+	},
+	{
+		title: "Mentoría y Capacitación",
+		description: "Forma tu equipo en mejores prácticas, nuevas tecnologías y estándares de desarrollo profesional.",
+		icon: "👨‍🏫"
+	},
+	{
+		title: "Automatización de Procesos",
+		description: "Scripts, bots y workflows que reducen tareas manuales. Integración con APIs y herramientas externas.",
+		icon: "⚙️"
+	},
+	{
+		title: "Auditoría de Código",
+		description: "Análisis profundo de tu código, desempeño y seguridad. Recomendaciones de mejora y refactoring.",
+		icon: "🔍"
+	},
+	{
+		title: "Optimización de Rendimiento",
+		description: "Mejora de Core Web Vitals, SEO técnico, velocidad de carga y experiencia de usuario.",
+		icon: "⚡"
+	},
+	{
+		title: "Migrations y Refactoring",
+		description: "Migración entre tecnologías, modernización de código legacy y actualización de arquitecturas.",
+		icon: "🔄"
+	},
+	{
+		title: "eCommerce Solutions",
+		description: "Plataformas de venta en línea con carrito, pagos, inventario y análisis de ventas.",
+		icon: "🛒"
+	}
+];
+---
+
+<section id="services" class="services">
+	<div class="container">
+		<h2>Servicios</h2>
+		<p class="section-subtitle">Soluciones completas para tus necesidades digitales</p>
+		<div class="services-grid">
+			{services.map(service => (
+				<div class="service-card">
+					<div class="service-icon">{service.icon}</div>
+					<h3>{service.title}</h3>
+					<p>{service.description}</p>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<style>
+	.services {
+		padding: 5rem 2rem;
+		background-color: var(--color-primary);
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.services h2 {
+		text-align: center;
+		margin-bottom: 0.5rem;
+		color: var(--color-accent);
+		font-size: 2.5rem;
+	}
+
+	.section-subtitle {
+		text-align: center;
+		color: var(--color-text-muted);
+		font-size: 1.1rem;
+		margin-bottom: 3rem;
+		font-weight: 300;
+	}
+
+	.services-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 2rem;
+	}
+
+	.service-card {
+		background: var(--color-secondary);
+		padding: 2rem;
+		border-radius: 0.75rem;
+		border: 1px solid var(--color-border);
+		transition: all 0.3s ease;
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.service-card:hover {
+		border-color: var(--color-accent);
+		transform: translateY(-8px);
+		box-shadow: 0 15px 35px rgba(59, 130, 246, 0.15);
+		background: linear-gradient(135deg, var(--color-secondary) 0%, rgba(59, 130, 246, 0.05) 100%);
+	}
+
+	.service-icon {
+		font-size: 3rem;
+		margin-bottom: 1rem;
+		animation: float 3s ease-in-out infinite;
+	}
+
+	.service-card h3 {
+		color: var(--color-accent);
+		margin-bottom: 1rem;
+		font-size: 1.3rem;
+	}
+
+	.service-card p {
+		color: var(--color-text-muted);
+		line-height: 1.6;
+		font-size: 0.95rem;
+	}
+
+	@keyframes float {
+		0%, 100% {
+			transform: translateY(0px);
+		}
+		50% {
+			transform: translateY(-8px);
+		}
+	}
+
+	@media (max-width: 768px) {
+		.services {
+			padding: 3rem 1rem;
+		}
+
+		.services h2 {
+			font-size: 2rem;
+			margin-bottom: 0.5rem;
+		}
+
+		.section-subtitle {
+			font-size: 1rem;
+			margin-bottom: 2rem;
+		}
+
+		.services-grid {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+
+		.service-icon {
+			font-size: 2.5rem;
+		}
+	}
+</style>
