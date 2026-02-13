@@ -1,0 +1,93 @@
+---
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "Portafolio de Alan Reibel - Desarrollador Full Stack" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content={description} />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<style is:global>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			:root {
+				--color-primary: #0f172a;
+				--color-secondary: #1e293b;
+				--color-accent: #3b82f6;
+				--color-accent-light: #60a5fa;
+				--color-text: #f1f5f9;
+				--color-text-muted: #cbd5e1;
+				--color-border: #334155;
+			}
+
+			html {
+				font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+				background-color: var(--color-primary);
+				color: var(--color-text);
+			}
+
+			body {
+				line-height: 1.6;
+				overflow-x: hidden;
+			}
+
+			a {
+				color: var(--color-accent);
+				text-decoration: none;
+				transition: color 0.3s ease;
+			}
+
+			a:hover {
+				color: var(--color-accent-light);
+			}
+
+			h1, h2, h3, h4, h5, h6 {
+				line-height: 1.2;
+				margin-bottom: 0.5em;
+			}
+
+			h1 {
+				font-size: 3rem;
+			}
+
+			h2 {
+				font-size: 2.25rem;
+			}
+
+			h3 {
+				font-size: 1.5rem;
+			}
+
+			button {
+				background-color: var(--color-accent);
+				color: white;
+				border: none;
+				padding: 0.75rem 1.5rem;
+				border-radius: 0.375rem;
+				cursor: pointer;
+				font-size: 1rem;
+				transition: background-color 0.3s ease;
+			}
+
+			button:hover {
+				background-color: var(--color-accent-light);
+			}
+		</style>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>

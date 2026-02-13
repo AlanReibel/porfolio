@@ -1,0 +1,98 @@
+{
+  "name": "Alan Reibel Tech Stack Agents",
+  "version": "1.0.0",
+  "description": "Sistema de agentes para gestionar y optimizar el stack técnico",
+  "agents": {
+    "frontend-optimizer": {
+      "name": "Frontend Optimizer Agent",
+      "purpose": "Optimizar código frontend y rendimiento",
+      "technologies": ["React", "Next.js", "Vue.js", "Nuxt.js", "Astro", "TypeScript"],
+      "responsibilities": [
+        "Code review de componentes",
+        "Performance optimization",
+        "Accessibility checks",
+        "Bundle size analysis"
+      ]
+    },
+    "backend-architect": {
+      "name": "Backend Architect Agent",
+      "purpose": "Diseñar y revisar arquitecturas backend",
+      "technologies": ["Node.js", "PHP", "Laravel", "SQL"],
+      "responsibilities": [
+        "API design review",
+        "Database optimization",
+        "Clean architecture enforcement",
+        "Security audits"
+      ]
+    },
+    "devops-engineer": {
+      "name": "DevOps Engineer Agent",
+      "purpose": "Gestionar infraestructura y deployment",
+      "technologies": ["Docker", "Git", "CI/CD", "nginx", "Linux"],
+      "responsibilities": [
+        "Pipeline configuration",
+        "Container optimization",
+        "Performance monitoring",
+        "Security hardening"
+      ]
+    },
+    "testing-specialist": {
+      "name": "Testing Specialist Agent",
+      "purpose": "Asegurar calidad del código",
+      "technologies": ["Vitest", "PHPUnit", "Code Reviews"],
+      "responsibilities": [
+        "Test strategy definition",
+        "Coverage analysis",
+        "Code review standards",
+        "Quality metrics"
+      ]
+    },
+    "seo-performance": {
+      "name": "SEO & Performance Agent",
+      "purpose": "Optimizar SEO y rendimiento",
+      "technologies": ["Web Performance", "Core Web Vitals", "SEO"],
+      "responsibilities": [
+        "Lighthouse audits",
+        "Core Web Vitals optimization",
+        "SEO technical checks",
+        "Asset optimization",
+        "Caching strategies"
+      ]
+    },
+    "design-system": {
+      "name": "Design System Agent",
+      "purpose": "Mantener consistencia en diseño",
+      "technologies": ["Figma", "Design Tools"],
+      "responsibilities": [
+        "Component library maintenance",
+        "Design tokens management",
+        "UI consistency checks",
+        "Design-to-code handoff"
+      ]
+    }
+  },
+  "workflows": {
+    "new-project": [
+      "frontend-optimizer",
+      "backend-architect",
+      "devops-engineer",
+      "design-system"
+    ],
+    "performance-audit": [
+      "seo-performance",
+      "frontend-optimizer",
+      "devops-engineer"
+    ],
+    "code-review": [
+      "testing-specialist",
+      "backend-architect",
+      "frontend-optimizer"
+    ],
+    "deployment": [
+      "devops-engineer",
+      "testing-specialist",
+      "seo-performance"
+    ]
+  },
+  "lastUpdated": "2025-02-13"
+}

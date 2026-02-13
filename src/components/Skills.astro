@@ -1,0 +1,168 @@
+---
+const skills = {
+	aiDevelopment: ['Claude Code', 'Windsurf', 'Agents', 'MCP Integrations', 'Workflows'],
+	frontend: ['HTML5', 'CSS3', 'JavaScript (ES6+)', 'TypeScript', 'Vue.js', 'Nuxt.js', 'Astro', 'React', 'Next.js', 'Three.js', 'Web Components'],
+	backend: ['PHP', 'Laravel', 'SQL', 'Node.js', 'REST', 'SOAP'],
+	testingQuality: ['Vitest', 'PHPUnit', 'Code Reviews', 'Clean Architecture'],
+	devopsTools: ['Docker', 'Git (GitHub, GitLab)', 'Linux Bash', 'Apache', 'nginx', 'CI/CD'],
+	performance: ['Web Performance Optimization', 'Core Web Vitals', 'Technical SEO', 'On-Page SEO'],
+	designTools: ['Figma', 'Photoshop', 'Adobe XD', 'Sketch'],
+	cmsEcommerce: ['WordPress', 'Prestashop'],
+	learning: ['PostgreSQL', 'Kafka', 'AWS S3', 'TDD', 'DDD', 'FFB']
+};
+---
+
+<section id="skills" class="skills">
+	<div class="container">
+		<h2>Habilidades</h2>
+		<div class="skills-grid">
+			<div class="skill-category">
+				<h3>AI & Development</h3>
+				<div class="skill-tags">
+					{skills.aiDevelopment.map(skill => (
+						<span class="skill-tag">{skill}</span>
+					))}
+				</div>
+			</div>
+			<div class="skill-category">
+				<h3>Frontend</h3>
+				<div class="skill-tags">
+					{skills.frontend.map(skill => (
+						<span class="skill-tag">{skill}</span>
+					))}
+				</div>
+			</div>
+			<div class="skill-category">
+				<h3>Backend</h3>
+				<div class="skill-tags">
+					{skills.backend.map(skill => (
+						<span class="skill-tag">{skill}</span>
+					))}
+				</div>
+			</div>
+			<div class="skill-category">
+				<h3>Testing & Quality</h3>
+				<div class="skill-tags">
+					{skills.testingQuality.map(skill => (
+						<span class="skill-tag">{skill}</span>
+					))}
+				</div>
+			</div>
+			<div class="skill-category">
+				<h3>DevOps & Tools</h3>
+				<div class="skill-tags">
+					{skills.devopsTools.map(skill => (
+						<span class="skill-tag">{skill}</span>
+					))}
+				</div>
+			</div>
+			<div class="skill-category">
+				<h3>Performance & SEO</h3>
+				<div class="skill-tags">
+					{skills.performance.map(skill => (
+						<span class="skill-tag">{skill}</span>
+					))}
+				</div>
+			</div>
+			<div class="skill-category">
+				<h3>Design Tools</h3>
+				<div class="skill-tags">
+					{skills.designTools.map(skill => (
+						<span class="skill-tag">{skill}</span>
+					))}
+				</div>
+			</div>
+			<div class="skill-category">
+				<h3>CMS & eCommerce</h3>
+				<div class="skill-tags">
+					{skills.cmsEcommerce.map(skill => (
+						<span class="skill-tag">{skill}</span>
+					))}
+				</div>
+			</div>
+			<div class="skill-category learning-category">
+				<h3>Actualmente Aprendiendo</h3>
+				<div class="skill-tags">
+					{skills.learning.map(skill => (
+						<span class="skill-tag learning-tag">{skill}</span>
+					))}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.skills {
+		padding: 5rem 2rem;
+		background-color: var(--color-secondary);
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.skills h2 {
+		text-align: center;
+		margin-bottom: 3rem;
+		color: var(--color-accent);
+	}
+
+	.skills-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+	}
+
+	.skill-category h3 {
+		color: var(--color-accent-light);
+		margin-bottom: 1.5rem;
+	}
+
+	.skill-category.learning-category h3 {
+		color: #fbbf24;
+	}
+
+	.skill-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+	}
+
+	.skill-tag {
+		background-color: var(--color-primary);
+		color: var(--color-accent);
+		padding: 0.75rem 1.25rem;
+		border-radius: 2rem;
+		border: 1px solid var(--color-accent);
+		font-size: 0.9rem;
+		transition: all 0.3s ease;
+	}
+
+	.skill-tag:hover {
+		background-color: var(--color-accent);
+		color: white;
+		transform: translateY(-4px);
+	}
+
+	.learning-tag {
+		border-color: #fbbf24;
+		color: #fbbf24;
+	}
+
+	.learning-tag:hover {
+		background-color: #fbbf24;
+		color: var(--color-primary);
+	}
+
+	@media (max-width: 768px) {
+		.skills {
+			padding: 3rem 1rem;
+		}
+
+		.skills-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

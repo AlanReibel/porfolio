@@ -1,0 +1,48 @@
+---
+---
+
+<footer class="footer">
+	<div class="container">
+		<div class="footer-content">
+			<p>&copy; 2025 Alan Reibel. Todos los derechos reservados.</p>
+			<p>Desarrollado con <span class="heart">❤️</span> y Astro</p>
+		</div>
+	</div>
+</footer>
+
+<style>
+	.footer {
+		background-color: var(--color-secondary);
+		border-top: 1px solid var(--color-border);
+		padding: 2rem;
+		margin-top: auto;
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.footer-content {
+		text-align: center;
+		color: var(--color-text-muted);
+	}
+
+	.footer-content p {
+		margin: 0.5rem 0;
+	}
+
+	.heart {
+		display: inline-block;
+		animation: heartbeat 1.5s ease-in-out infinite;
+	}
+
+	@keyframes heartbeat {
+		0%, 100% {
+			transform: scale(1);
+		}
+		50% {
+			transform: scale(1.2);
+		}
+	}
+</style>

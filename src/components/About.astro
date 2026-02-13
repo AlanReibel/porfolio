@@ -1,0 +1,68 @@
+---
+---
+
+<section id="about" class="about">
+	<div class="container">
+		<h2>Sobre Mí</h2>
+		<div class="about-content">
+			<div class="about-text">
+				<p>
+					Soy un desarrollador full-stack apasionado por crear soluciones web innovadoras 
+					y de alto rendimiento. Con experiencia en tecnologías modernas, me dedico a resolver 
+					problemas complejos y ayudar a los equipos a alcanzar sus objetivos.
+				</p>
+				<p>
+					Me especializo en el desarrollo tanto del frontend como del backend, 
+					trabajando con tecnologías como React, Node.js, TypeScript y bases de datos relacionales 
+					y no relacionales.
+				</p>
+				<p>
+					Fuera del código, disfruto aprendiendo nuevas tecnologías, contribuyendo a proyectos 
+					de código abierto y mentorando a otros desarrolladores.
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.about {
+		padding: 5rem 2rem;
+		background-color: var(--color-primary);
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	.about h2 {
+		text-align: center;
+		margin-bottom: 3rem;
+		color: var(--color-accent);
+	}
+
+	.about-content {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 3rem;
+		align-items: center;
+	}
+
+	.about-text p {
+		font-size: 1.05rem;
+		color: var(--color-text-muted);
+		margin-bottom: 1.5rem;
+		line-height: 1.8;
+	}
+
+	@media (max-width: 768px) {
+		.about {
+			padding: 3rem 1rem;
+		}
+
+		.about-text p {
+			font-size: 1rem;
+		}
+	}
+</style>
